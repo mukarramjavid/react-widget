@@ -27,6 +27,27 @@
     <title>React App</title>
   </head>
   <body>
+    <script type="text/javascript">
+      // debugger
+      var betway_sports_widget_params = {
+        container_id: "root",
+        id: getUrlParam()["id"],
+      };
+      function getUrlParam() {
+        // debugger
+        var vars = [],
+          hash;
+        var hashes = window.location.href
+          .slice(window.location.href.indexOf("?") + 1)
+          .split("&");
+        for (var i = 0; i < hashes.length; i++) {
+          hash = hashes[i].split("=");
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+        }
+        return vars;
+      }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

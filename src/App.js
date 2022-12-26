@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Soccer from './Components/Soccer/Soccer';
+import Tennis from './Components/Tennis/Tennis';
+import Default from './Components/Default/Default';
+import { Helmet } from "react-helmet";
+import config from './Configuration/config';
 
-function App() {
+
+function App({ widget }) {
+  // debugger
+  console.log({ widget });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <link rel="stylesheet" href={`${config.rootURL}index.css`} />
+      </Helmet>
+      <div>
+        {Number(widget.id) === 1 ? <Soccer /> : Number(widget.id) === 2 ? <Tennis /> : <Default />}
+      </div>
+    </>
   );
 }
 

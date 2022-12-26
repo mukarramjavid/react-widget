@@ -6,16 +6,31 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.1",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-scripts": "5.0.1",
+    "serve": "^14.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:widget": "parcel build src/index.js --no-source-maps --dist-dir widget && npm run copy",
+    "copy": "Xcopy /E public\\images widget\\images\\"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "public/",
+        "staticOutDir": "widget"
+      }
+    ],
+    "watcherGlob": "**"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "parcel-plugin-static-files-copy": "^2.6.0"
   }
 }
